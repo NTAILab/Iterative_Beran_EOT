@@ -6,7 +6,7 @@ import numpy as np
 
 from save_results import save_results
 from beran_baseline import beran_baseline
-from beran_iterative_k_ti import beran_iterative_k_ti
+from beran_iterative_EOT import beran_iterative_EOT
 
 if __name__ == '__main__':
     tau = 2.0
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     c_index, ibs = beran_b.calculate_metics(deltas_test, times_test, SF_baseline)
     metrics_baseline = {"c_index": c_index, "IBS": ibs}
 
-    beran_new = beran_iterative_k_ti(tau=tau, k=k, reg_pi=reg_pi)
+    beran_new = beran_iterative_EOT(tau=tau, k=k, reg_pi=reg_pi)
     beran_new.fit(X_train_scaled, deltas_train, times_train)
     train_history = beran_new.train(X_test_scaled, deltas_test, times_test, epochs = epochs_count)
 

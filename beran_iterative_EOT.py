@@ -3,7 +3,7 @@ import torch
 
 from survival_function_model import survival_function_model
 
-class beran_iterative_k_ti(survival_function_model):
+class beran_iterative_EOT(survival_function_model):
     def __init__(self, tau=0.1, k = 5, reg_pi=1.0):
         super().__init__()
         self.tau = tau
